@@ -8,4 +8,4 @@ sub BEGIN {
 }
 
 diag('Testing UWO::Student ', UWO::Student->VERSION);
-diag(" Running under Perl $], $^X");
+diag(' Running under Perl ', $], ' [', $^X, ']');

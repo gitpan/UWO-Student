@@ -244,7 +244,9 @@ sub name {
 }
 
 =head2 given_name([$name])
+
 =head2 last_name([$name])
+
 =head2 faculty([$name])
 
 These mutator methods simply set the appropriate fields if parameters are
