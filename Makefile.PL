@@ -1,3 +1,7 @@
+#!perl
+
+# $Id: Makefile.PL 2 2007-08-22 20:29:23Z frequency $
+
 use strict;
 use warnings;
 
@@ -14,9 +18,12 @@ ExtUtils::MakeMaker::WriteMakefile(
   ABSTRACT_FROM       => 'lib/UWO/Student.pm',
   PL_FILES            => {},
   PREREQ_PM => {
-    'Carp'            => 0,
+    # Pragmatic and special modules
     'overload'        => 0,
-    'Test::More'      => 0,
+    'Carp'            => 1.04,
+
+    # Other modules
+    'Test::More'      => 0.70,
   },
 
   test                => { TESTS => join(' ', @tests) },

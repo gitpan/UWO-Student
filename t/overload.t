@@ -1,5 +1,7 @@
 #!perl -T
 
+# $Id: overload.t 2 2007-08-22 20:29:23Z frequency $
+
 use Test::More tests => 8;
 
 use UWO::Student;

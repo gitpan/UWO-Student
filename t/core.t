@@ -1,6 +1,11 @@
 #!perl -T
 
-use Test::More tests => 33;
+# $Id: core.t 2 2007-08-22 20:29:23Z frequency $
+
+use strict;
+use warnings;
+
+use Test::More;
 
 use UWO::Student;
 
@@ -21,6 +26,9 @@ my @methods = (
   # Full user stringification
   'as_string',
 );
+
+# There are 25 non-method tests
+plan tests => (25 + scalar(@methods));
 
 foreach my $meth (@methods) {
   ok(UWO::Student->can($meth), 'Method "' . $meth . '" exists.');
