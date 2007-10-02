@@ -1,7 +1,7 @@
 # UWO::Student
 #  Represent a student as an object
 #
-# $Id: Student.pm 3 2007-08-22 20:45:02Z frequency $
+# $Id: Student.pm 10 2007-10-02 02:17:34Z frequency $
 #
 # Copyright (C) 2006-2007 by Jonathan Yu <frequency@cpan.org>
 #
@@ -31,21 +31,17 @@ Ontario student.
 
 =head1 VERSION
 
-Version 0.01 ($Id: Student.pm 3 2007-08-22 20:45:02Z frequency $)
+Version 0.02 ($Id: Student.pm 10 2007-10-02 02:17:34Z frequency $)
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
 This module provides a Perl object interface representing students of the
 University of Western Ontario. It performs basic input validation on given data
 and will throw an exception for suspicious information.
-
-Additional validation is recommended since, at present, the module does not
-perform "deep" verification -- it does not use regular expressions and cannot
-"untaint" data, if you are running Perl under taintmode (Perl flag -T).
 
 You will probably not need to use this module directly, but its accessors may
 be useful since collections of these objects are returned from the C<UWO::*>
@@ -63,18 +59,25 @@ Example code:
 
 =head1 COMPATIBILITY
 
-Though this module was only tested under Perl 5.8.8 on Linux, it should
-be compatible with any version of Perl that supports Email::Handle and Carp.
+Though this module was only tested under Perl 5.8.8 on Linux, it should be
+compatible with any version of Perl that supports its prerequisite modules.
+
 If you encounter any problems on a different version or architecture, please
 contact the maintainer.
 
 =head1 METHODS
 
-=head2 new(\%params)
+=head2 Class and Constructor Methods
 
-Creates a C<UWO::Student> object, which either stores given parameters or throws
-an exception if it fails the simplistic validation rules. (See the C<email> and
-C<number> methods for further details.)
+=over
+
+=item UWO::Student->new
+
+=item UWO::Student->new(\%params)
+
+Creates a C<UWO::Student> object, which either stores given parameters or
+throws an exception if it fails the simplistic validation rules. (See the
+C<email> and C<number> methods for further details.)
 
 The parameters available are:
 
@@ -112,7 +115,9 @@ sub new {
   return $self;
 }
 
-=head2 email([$address])
+=item $stu->email
+
+=item $stu->email($address)
 
 Without parameters, this method returns an C<Email::Handle> object (if
 available.) Otherwise, it returns a SCALAR containing the e-mail address
@@ -138,8 +143,8 @@ Example code:
     $stu->email('jdoe@uwo.ca');
 
 This method is not guaranteed to return results. The e-mail address could very
-well be C<undef> if none has been specified yet and it is not guaranteed to even
-"look" valid by any account. It does parsing, but not validation.
+well be C<undef> if none has been specified yet and it is not guaranteed to
+even "look" valid by any account. It does parsing, but not validation.
 
 =cut
 
@@ -162,12 +167,14 @@ sub email {
   return $self->{email};
 }
 
-=head2 number([$number])
+=item $stu->number
+
+=item $stu->number($number)
 
 If C<$number> is given, it will store the given integer as the Student's unique
 university identification number. Student numbers MUST consist of numbers 0
-through 9 (of length 1-9 digits). Since this is just a SCALAR, you may also pass
-an underscore-delimited integer if you wish to improve readability:
+through 9 (of length 1-9 digits). Since this is just a SCALAR, you may also
+pass an underscore-delimited integer if you wish to improve readability:
 
 Example code:
 
@@ -203,7 +210,7 @@ sub number {
   return $self->{number};
 }
 
-=head2 name()
+=item $stu->name
 
 This method intelligently concatenates the given and last names of the student.
 
@@ -233,17 +240,25 @@ sub name {
   return $name;
 }
 
-=head2 given_name([$name])
+=item $stu->given_name
 
-=head2 last_name([$name])
+=item $stu->given_name($name)
 
-=head2 faculty([$name])
+=item $stu->last_name
+
+=item $stu->last_name($name)
+
+=item $stu->faculty
+
+=item $stu->faculty($faculty)
 
 These mutator methods simply set the appropriate fields if parameters are
-provided. Currently, it does not perform any input validation at all, although
-this behaviour may change in the future. Namely, the module may begin to
-validate faculty names (as they appear in the database), since they are of a
-limited size and do not change frequently.
+provided.
+
+Currently, it does not perform any input validation at all, although this
+behaviour may change in the future. In particular, the module may validate
+faculty names (as they appear in the database), since they are of a limited
+size and do not change frequently.
 
 Example code:
 
@@ -306,7 +321,9 @@ sub faculty {
   return $self->{faculty};
 }
 
-=head2 as_string()
+=item $stu->as_string
+
+=item "$stu"
 
 This method, which is also executed upon stringification, intelligently
 composes a string representation of the given user for display. Namely, it
@@ -361,15 +378,15 @@ sub as_string {
   return '<unknown>';
 }
 
+=back
+
 =head1 CONTRIBUTORS
 
 =head2 MAINTAINER
 
-Jonathan Yu << <frequency@cpan.org> >>
+Jonathan Yu E<lt>frequency@cpan.orgE<gt>
 
 =head1 ACKNOWLEDGEMENTS
-
-=head1 SEE ALSO
 
 =head1 SUPPORT
 
@@ -393,21 +410,74 @@ L<http://cpanratings.perl.org/d/UWO-Student>
 
 L<http://search.cpan.org/dist/UWO-Student>
 
+=item * CPAN Request Tracker
+
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=UWO-Student>
+
 =back
 
 =head1 FEEDBACK
 
-Please send relevant comments, bug reports, rotten tomatoes and suggestions
-directly to the maintainer noted above.
+Please send relevant comments, rotten tomatoes and suggestions directly to the
+maintainer noted above.
 
-=head1 BUGS AND LIMITATIONS
+If you have a bug report or feature request, please file them on the CPAN
+Request Tracker at L<http://rt.cpan.org>
 
-There are no known bugs as of this release. Please send any bug reports to the
-maintainer directly via e-mail.
+=head1 SEE ALSO
+
+L<UWO::Directory::Student>
+
+=head1 CAVEATS
+
+=head2 KNOWN BUGS
+
+There are no known bugs as of this release.
+
+=head2 LIMITATIONS
+
+=over
+
+=item *
+
+This module does not perform any verification of:
+
+=over
+
+=item *
+
+Names: Both first and last names are stored as-is. The given name mechanism is
+implemented assuming a left-to-right reading order.
+
+=item *
+
+Faculty: The faculty is stored as-is, without verification or adjustment of any
+kind.
+
+=item *
+
+Student numbers: These must be numeric with at least 1 and at most 9 digits.
+There may be other as-yet-undiscovered patterns which may be reflected in
+subsequent versions of this software.
+
+=back
+
+=item *
+
+This module does not perform heavy validation of data and cannot "untaint" it
+for you. Whether data is "unclean" depends on the semantics of users of this
+module, however, this module may impose restrictions preventing inclusion of
+characters not considered to be alphanumeric.
+
+=item *
+
+This module has not been tested very thoroughly with Unicode.
+
+=back
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2007 by Jonathan Yu << <frequency@cpan.org> >>
+Copyright (C) 2007 by Jonathan Yu
 
 Redistribution and use in source/binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -416,8 +486,8 @@ are permitted provided that the following conditions are met:
 
 =item 1
 
-Redistributions of source code must retain the above copyright notice, this list
-of conditions and the following disclaimer.
+Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
 
 =item 2
 

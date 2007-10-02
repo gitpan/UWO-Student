@@ -1,7 +1,7 @@
 # This Makefile is for the UWO::Student extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.30_01 (Revision: Revision: 4535 ) from the contents of
+# 6.36 (Revision: 32261) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -12,13 +12,14 @@
 
 #     ABSTRACT_FROM => q[lib/UWO/Student.pm]
 #     AUTHOR => q[Jonathan Yu <frequency@cpan.org>]
+#     LICENSE => q[bsd]
 #     NAME => q[UWO::Student]
 #     PL_FILES => {  }
-#     PREREQ_PM => { Test::More=>q[0.7], overload=>q[0], Carp=>q[1.04] }
+#     PREREQ_PM => { Test::More=>q[0.62], overload=>q[0], Carp=>q[1.04] }
 #     VERSION_FROM => q[lib/UWO/Student.pm]
 #     clean => { FILES=>q[UWO-Student-*] }
 #     dist => { COMPRESS=>q[gzip -9f], SUFFIX=>q[gz] }
-#     test => { TESTS=>q[t/00-load.t t/core.t t/email-handle.t t/overload.t t/pod-coverage.t t/pod.t] }
+#     test => { TESTS=>q[t/00load.t t/01pod-coverage.t t/01pod.t t/02core.t t/03email-handle.t t/03overload.t] }
 
 # --- MakeMaker post_initialize section:
 
@@ -34,6 +35,8 @@ CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
+EXE_EXT = 
+FULL_AR = /usr/bin/ar
 LD = cc
 LDDLFLAGS = -shared -L/usr/local/lib
 LDFLAGS =  -L/usr/local/lib
@@ -46,8 +49,6 @@ RANLIB = :
 SITELIBEXP = /usr/local/share/perl/5.8.8
 SITEARCHEXP = /usr/local/lib/perl/5.8.8
 SO = so
-EXE_EXT = 
-FULL_AR = /usr/bin/ar
 VENDORARCHEXP = /usr/lib/perl5
 VENDORLIBEXP = /usr/share/perl5
 
@@ -58,11 +59,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = UWO::Student
 NAME_SYM = UWO_Student
-VERSION = 0.01
+VERSION = 0.02
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_01
+VERSION_SYM = 0_02
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.01
+XS_VERSION = 0.02
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -75,45 +76,45 @@ MAN1EXT = 1p
 MAN3EXT = 3pm
 INSTALLDIRS = site
 DESTDIR = 
-PREFIX = /usr
-PERLPREFIX = $(PREFIX)
-SITEPREFIX = $(PREFIX)/local
-VENDORPREFIX = $(PREFIX)
-INSTALLPRIVLIB = $(PERLPREFIX)/share/perl/5.8
+PREFIX = $(SITEPREFIX)
+PERLPREFIX = /usr
+SITEPREFIX = /usr/local
+VENDORPREFIX = /usr
+INSTALLPRIVLIB = /usr/share/perl/5.8
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = $(SITEPREFIX)/share/perl/5.8.8
+INSTALLSITELIB = /usr/local/share/perl/5.8.8
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = $(VENDORPREFIX)/share/perl5
+INSTALLVENDORLIB = /usr/share/perl5
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = $(PERLPREFIX)/lib/perl/5.8
+INSTALLARCHLIB = /usr/lib/perl/5.8
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = $(SITEPREFIX)/lib/perl/5.8.8
+INSTALLSITEARCH = /usr/local/lib/perl/5.8.8
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = $(VENDORPREFIX)/lib/perl5
+INSTALLVENDORARCH = /usr/lib/perl5
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = $(PERLPREFIX)/bin
+INSTALLBIN = /usr/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = $(SITEPREFIX)/bin
+INSTALLSITEBIN = /usr/local/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = $(VENDORPREFIX)/bin
+INSTALLVENDORBIN = /usr/bin
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = $(PERLPREFIX)/bin
+INSTALLSCRIPT = /usr/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = $(SITEPREFIX)/bin
+INSTALLSITESCRIPT = /usr/local/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = $(VENDORPREFIX)/bin
+INSTALLVENDORSCRIPT = /usr/bin
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = $(PERLPREFIX)/share/man/man1
+INSTALLMAN1DIR = /usr/share/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = $(SITEPREFIX)/man/man1
+INSTALLSITEMAN1DIR = /usr/local/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = $(VENDORPREFIX)/share/man/man1
+INSTALLVENDORMAN1DIR = /usr/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = $(PERLPREFIX)/share/man/man3
+INSTALLMAN3DIR = /usr/share/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = $(SITEPREFIX)/man/man3
+INSTALLSITEMAN3DIR = /usr/local/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = $(VENDORPREFIX)/share/man/man3
+INSTALLVENDORMAN3DIR = /usr/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB = /usr/share/perl/5.8
 PERL_ARCHLIB = /usr/lib/perl/5.8
@@ -136,14 +137,15 @@ PERL_CORE = 0
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /usr/share/perl/5.8/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.30_01
-MM_REVISION = Revision: 4535 
+MAKEMAKER   = /usr/local/share/perl/5.8.8/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.36
+MM_REVISION = 32261
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
 # PARENT_NAME = NAME without BASEEXT and no trailing :: (eg Foo::Bar)
 # DLBASE  = Basename part of dynamic library. May be just equal BASEEXT.
+MAKE = make
 FULLEXT = UWO/Student
 BASEEXT = Student
 PARENT_NAME = UWO
@@ -189,13 +191,13 @@ PM_TO_BLIB = lib/UWO/Student.pm \
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 1.50_01
+MM_Unix_VERSION = 1.54
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
 # --- MakeMaker tool_autosplit section:
 # Usage: $(AUTOSPLITFILE) FileToSplit AutoDirToSplitInto
-AUTOSPLITFILE = $(ABSPERLRUN)  -e 'use AutoSplit;  autosplit($$ARGV[0], $$ARGV[1], 0, 1, 1)'
+AUTOSPLITFILE = $(ABSPERLRUN)  -e 'use AutoSplit;  autosplit($$ARGV[0], $$ARGV[1], 0, 1, 1)' --
 
 
 
@@ -221,7 +223,7 @@ ECHO = echo
 ECHO_N = echo -n
 UNINST = 0
 VERBINST = 0
-MOD_INSTALL = $(ABSPERLRUN) -MExtUtils::Install -e 'install({@ARGV}, '\''$(VERBINST)'\'', 0, '\''$(UNINST)'\'');'
+MOD_INSTALL = $(ABSPERLRUN) -MExtUtils::Install -e 'install({@ARGV}, '\''$(VERBINST)'\'', 0, '\''$(UNINST)'\'');' --
 DOC_INSTALL = $(ABSPERLRUN) "-MExtUtils::Command::MM" -e perllocal_install
 UNINSTALL = $(ABSPERLRUN) "-MExtUtils::Command::MM" -e uninstall
 WARN_IF_OLD_PACKLIST = $(ABSPERLRUN) "-MExtUtils::Command::MM" -e warn_if_old_packlist
@@ -252,7 +254,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = UWO-Student
-DISTVNAME = UWO-Student-0.01
+DISTVNAME = UWO-Student-0.02
 
 
 # --- MakeMaker macro section:
@@ -405,9 +407,8 @@ POD2MAN = $(POD2MAN_EXE)
 
 
 manifypods : pure_all  \
-	lib/UWO/Student.pm \
 	lib/UWO/Student.pm
-	$(NOECHO) $(POD2MAN) --section=$(MAN3EXT) --perm_rw=$(PERM_RW) \
+	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
 	  lib/UWO/Student.pm $(INST_MAN3DIR)/UWO::Student.$(MAN3EXT) 
 
 
@@ -472,19 +473,22 @@ realclean purge ::  clean realclean_subdirs
 # --- MakeMaker metafile section:
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
-	$(NOECHO) $(ECHO) '# http://module-build.sourceforge.net/META-spec.html' > META_new.yml
-	$(NOECHO) $(ECHO) '#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#' >> META_new.yml
-	$(NOECHO) $(ECHO) 'name:         UWO-Student' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version:      0.01' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version_from: lib/UWO/Student.pm' >> META_new.yml
-	$(NOECHO) $(ECHO) 'installdirs:  site' >> META_new.yml
-	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
+	$(NOECHO) $(ECHO) '--- #YAML:1.0' > META_new.yml
+	$(NOECHO) $(ECHO) 'name:                UWO-Student' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version:             0.02' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract:            Provides Perl object representation of a University of Western' >> META_new.yml
+	$(NOECHO) $(ECHO) 'license:             bsd' >> META_new.yml
+	$(NOECHO) $(ECHO) 'generated_by:        ExtUtils::MakeMaker version 6.36' >> META_new.yml
+	$(NOECHO) $(ECHO) 'distribution_type:   module' >> META_new.yml
+	$(NOECHO) $(ECHO) 'requires:     ' >> META_new.yml
 	$(NOECHO) $(ECHO) '    Carp:                          1.04' >> META_new.yml
 	$(NOECHO) $(ECHO) '    overload:                      0' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Test::More:                    0.7' >> META_new.yml
-	$(NOECHO) $(ECHO) '' >> META_new.yml
-	$(NOECHO) $(ECHO) 'distribution_type: module' >> META_new.yml
-	$(NOECHO) $(ECHO) 'generated_by: ExtUtils::MakeMaker version 6.30_01' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Test::More:                    0.62' >> META_new.yml
+	$(NOECHO) $(ECHO) 'meta-spec:' >> META_new.yml
+	$(NOECHO) $(ECHO) '    url:     http://module-build.sourceforge.net/META-spec-v1.2.html' >> META_new.yml
+	$(NOECHO) $(ECHO) '    version: 1.2' >> META_new.yml
+	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
+	$(NOECHO) $(ECHO) '    - Jonathan Yu <frequency@cpan.org>' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 
 
@@ -507,7 +511,7 @@ manifest :
 	$(PERLRUN) "-MExtUtils::Manifest=mkmanifest" -e mkmanifest
 
 veryclean : realclean
-	$(RM_F) *~ *.orig */*~ */*.orig
+	$(RM_F) *~ */*~ *.orig */*.orig *.bak */*.bak *.old */*.old 
 
 
 
@@ -515,7 +519,7 @@ veryclean : realclean
 
 dist : $(DIST_DEFAULT) $(FIRST_MAKEFILE)
 	$(NOECHO) $(ABSPERLRUN) -l -e 'print '\''Warning: Makefile possibly out of date with $(VERSION_FROM)'\''' \
-	  -e '    if -e '\''$(VERSION_FROM)'\'' and -M '\''$(VERSION_FROM)'\'' < -M '\''$(FIRST_MAKEFILE)'\'';'
+	  -e '    if -e '\''$(VERSION_FROM)'\'' and -M '\''$(VERSION_FROM)'\'' < -M '\''$(FIRST_MAKEFILE)'\'';' --
 
 tardist : $(DISTVNAME).tar$(SUFFIX)
 	$(NOECHO) $(NOOP)
@@ -578,14 +582,14 @@ ci :
 # --- MakeMaker distmeta section:
 distmeta : create_distdir metafile
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{META.yml} => q{Module meta-data (added by MakeMaker)}}) } ' \
-	  -e '    or print "Could not add META.yml to MANIFEST: $${'\''@'\''}\n"'
+	  -e '    or print "Could not add META.yml to MANIFEST: $${'\''@'\''}\n"' --
 
 
 
 # --- MakeMaker distsignature section:
 distsignature : create_distdir
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) } ' \
-	  -e '    or print "Could not add SIGNATURE to MANIFEST: $${'\''@'\''}\n"'
+	  -e '    or print "Could not add SIGNATURE to MANIFEST: $${'\''@'\''}\n"' --
 	$(NOECHO) cd $(DISTVNAME) && $(TOUCH) SIGNATURE
 	cd $(DISTVNAME) && cpansign -s
 
@@ -618,7 +622,9 @@ doc__install : doc_site_install
 	$(NOECHO) $(ECHO) INSTALLDIRS not defined, defaulting to INSTALLDIRS=site
 
 pure_perl_install ::
-	$(NOECHO) umask 022; $(MOD_INSTALL) \
+	$(NOECHO) $(MOD_INSTALL) \
+		read $(PERL_ARCHLIB)/auto/$(FULLEXT)/.packlist \
+		write $(DESTINSTALLARCHLIB)/auto/$(FULLEXT)/.packlist \
 		$(INST_LIB) $(DESTINSTALLPRIVLIB) \
 		$(INST_ARCHLIB) $(DESTINSTALLARCHLIB) \
 		$(INST_BIN) $(DESTINSTALLBIN) \
@@ -630,7 +636,7 @@ pure_perl_install ::
 
 
 pure_site_install ::
-	$(NOECHO) umask 02; $(MOD_INSTALL) \
+	$(NOECHO) $(MOD_INSTALL) \
 		read $(SITEARCHEXP)/auto/$(FULLEXT)/.packlist \
 		write $(DESTINSTALLSITEARCH)/auto/$(FULLEXT)/.packlist \
 		$(INST_LIB) $(DESTINSTALLSITELIB) \
@@ -643,7 +649,9 @@ pure_site_install ::
 		$(PERL_ARCHLIB)/auto/$(FULLEXT)
 
 pure_vendor_install ::
-	$(NOECHO) umask 022; $(MOD_INSTALL) \
+	$(NOECHO) $(MOD_INSTALL) \
+		read $(VENDORARCHEXP)/auto/$(FULLEXT)/.packlist \
+		write $(DESTINSTALLVENDORARCH)/auto/$(FULLEXT)/.packlist \
 		$(INST_LIB) $(DESTINSTALLVENDORLIB) \
 		$(INST_ARCHLIB) $(DESTINSTALLVENDORARCH) \
 		$(INST_BIN) $(DESTINSTALLVENDORBIN) \
@@ -652,31 +660,50 @@ pure_vendor_install ::
 		$(INST_MAN3DIR) $(DESTINSTALLVENDORMAN3DIR)
 
 doc_perl_install ::
+	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
+	-$(NOECHO) $(MKPATH) $(DESTINSTALLARCHLIB)
+	-$(NOECHO) $(DOC_INSTALL) \
+		"Module" "$(NAME)" \
+		"installed into" "$(INSTALLPRIVLIB)" \
+		LINKTYPE "$(LINKTYPE)" \
+		VERSION "$(VERSION)" \
+		EXE_FILES "$(EXE_FILES)" \
+		>> $(DESTINSTALLARCHLIB)/perllocal.pod
 
 doc_site_install ::
-	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLSITEARCH)/perllocal.pod
-	-$(NOECHO) umask 02; $(MKPATH) $(DESTINSTALLSITEARCH)
-	-$(NOECHO) umask 02; $(DOC_INSTALL) \
+	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
+	-$(NOECHO) $(MKPATH) $(DESTINSTALLARCHLIB)
+	-$(NOECHO) $(DOC_INSTALL) \
 		"Module" "$(NAME)" \
 		"installed into" "$(INSTALLSITELIB)" \
 		LINKTYPE "$(LINKTYPE)" \
 		VERSION "$(VERSION)" \
 		EXE_FILES "$(EXE_FILES)" \
-		>> $(DESTINSTALLSITEARCH)/perllocal.pod
+		>> $(DESTINSTALLARCHLIB)/perllocal.pod
 
 doc_vendor_install ::
+	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
+	-$(NOECHO) $(MKPATH) $(DESTINSTALLARCHLIB)
+	-$(NOECHO) $(DOC_INSTALL) \
+		"Module" "$(NAME)" \
+		"installed into" "$(INSTALLVENDORLIB)" \
+		LINKTYPE "$(LINKTYPE)" \
+		VERSION "$(VERSION)" \
+		EXE_FILES "$(EXE_FILES)" \
+		>> $(DESTINSTALLARCHLIB)/perllocal.pod
 
 
 uninstall :: uninstall_from_$(INSTALLDIRS)dirs
 	$(NOECHO) $(NOOP)
 
 uninstall_from_perldirs ::
+	$(NOECHO) $(UNINSTALL) $(PERL_ARCHLIB)/auto/$(FULLEXT)/.packlist
 
 uninstall_from_sitedirs ::
 	$(NOECHO) $(UNINSTALL) $(SITEARCHEXP)/auto/$(FULLEXT)/.packlist
 
 uninstall_from_vendordirs ::
-
+	$(NOECHO) $(UNINSTALL) $(VENDORARCHEXP)/auto/$(FULLEXT)/.packlist
 
 
 # --- MakeMaker force section:
@@ -726,12 +753,16 @@ $(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
 TEST_VERBOSE=0
 TEST_TYPE=test_$(LINKTYPE)
 TEST_FILE = test.pl
-TEST_FILES = t/00-load.t t/core.t t/email-handle.t t/overload.t t/pod-coverage.t t/pod.t
+TEST_FILES = t/00load.t t/01pod-coverage.t t/01pod.t t/02core.t t/03email-handle.t t/03overload.t
 TESTDB_SW = -d
 
 testdb :: testdb_$(LINKTYPE)
 
-test :: $(TEST_TYPE)
+test :: $(TEST_TYPE) subdirs-test
+
+subdirs-test ::
+	$(NOECHO) $(NOOP)
+
 
 test_dynamic :: pure_all
 	PERL_DL_NONLAZY=1 $(FULLPERLRUN) "-MExtUtils::Command::MM" "-e" "test_harness($(TEST_VERBOSE), '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
@@ -748,16 +779,16 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd:
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,01,0,0">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,02,0,0">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <TITLE>$(DISTNAME)</TITLE>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Provides Perl object representation of a University of Western</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Jonathan Yu &lt;frequency@cpan.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Carp" VERSION="1,04,0,0" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Test-More" VERSION="0,7,0,0" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Test-More" VERSION="0,62,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="overload" VERSION="0,0,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <OS NAME="$(OSNAME)" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="i486-linux-gnu-thread-multi" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="i486-linux-gnu-thread-multi-5.8" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -766,7 +797,7 @@ ppd:
 # --- MakeMaker pm_to_blib section:
 
 pm_to_blib : $(TO_INST_PM)
-	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', '\''$(PM_FILTER)'\'')' \
+	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', '\''$(PM_FILTER)'\'')' -- \
 	  lib/UWO/Student.pm blib/lib/UWO/Student.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 

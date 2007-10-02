@@ -4,9 +4,9 @@ Makefile.PL
 MANIFEST			This list of files
 MANIFEST.SKIP
 README
-t/00-load.t
-t/core.t
-t/email-handle.t
-t/overload.t
-t/pod-coverage.t
-t/pod.t
+t/00load.t
+t/01pod.t
+t/01pod-coverage.t
+t/02core.t
+t/03email-handle.t
+t/03overload.t
