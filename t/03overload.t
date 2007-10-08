@@ -1,6 +1,6 @@
 #!perl -T
 
-# $Id: overload.t 2 2007-08-22 20:29:23Z frequency $
+# $Id: 03overload.t 10 2007-10-02 02:17:34Z frequency $
 
 use Test::More tests => 8;
 

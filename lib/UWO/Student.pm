@@ -1,7 +1,7 @@
 # UWO::Student
 #  Represent a student as an object
 #
-# $Id: Student.pm 10 2007-10-02 02:17:34Z frequency $
+# $Id: Student.pm 11 2007-10-08 13:04:50Z frequency $
 #
 # Copyright (C) 2006-2007 by Jonathan Yu <frequency@cpan.org>
 #
@@ -27,15 +27,15 @@ eval { require Email::Handle; };
 =head1 NAME
 
 UWO::Student - Provides Perl object representation of a University of Western
-Ontario student.
+Ontario student
 
 =head1 VERSION
 
-Version 0.02 ($Id: Student.pm 10 2007-10-02 02:17:34Z frequency $)
+Version 0.03 ($Id: Student.pm 11 2007-10-08 13:04:50Z frequency $)
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 

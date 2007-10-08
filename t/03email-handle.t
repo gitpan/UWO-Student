@@ -1,6 +1,6 @@
 #!perl -T
 
-# $Id: email-handle.t 2 2007-08-22 20:29:23Z frequency $
+# $Id: 03email-handle.t 10 2007-10-02 02:17:34Z frequency $
 
 use strict;
 use warnings;
